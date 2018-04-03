@@ -102,11 +102,105 @@ public class Date {
 			case 11:
 				name = "Noviembre";
 			break;
-		
-			default:
+			
+			case 12:
 				name = "Diciembre";
+			break;
+
+			default:
+				name = "Mes incorrecto";
 		}
 		return name;
 	}
+	boolean isDayOfMonthOK(){
+		if ((this.month == 1)||(this.month == 3)||(this.month == 5)||(this.month == 7)||(this.month == 8)||(this.month == 10)||(this.month == 12)){
+			if ((this.day >0)&&(this.day <=31)){
+				return true;
+			}
+		}
 
+		else if ((this.month == 4)||(this.month == 6)||(this.month == 9)||(this.month == 11)){
+			if ((this.day >0)&&(this.day <=30)){
+				return true;
+			}
+		}
+
+		else if (this.month == 2){
+			if ((this.day >0)&&(this.day <=28)){
+				return true;
+			}
+		}
+		return false;
+	}
+	/*boolean isSameMonth(Date another){
+		if ( this.month == another.getYear() ){
+			return true;
+		}
+		return false;
+	}
+	*/
+	public String getMonthSeason(){
+		String season;
+	
+		switch(month){
+			case 1:
+			case 2:	
+				season = "Invierno (Hemisferio Norte) / Verano (Hemisferio Sur)"; 
+			break;
+			case 3:
+				if(this.day <=20){
+					season = "Invierno (Hemisferio Norte) / Verano (Hemisferio Sur)"; 
+				}
+				else{
+					season = "Primavera (Hemisferio Norte) / Otoño (Hemisferio Sur)"; 
+				}
+			break;
+		
+			case 4:
+			case 5:
+				season = "Primavera (Hemisferio Norte) / Otoño (Hemisferio Sur)"; 
+			break;
+	
+			case 6:
+				if(this.day <=20){
+					season = "Primavera (Hemisferio Norte) / Verano (Hemisferio Sur)"; 
+				}
+				else{
+					season = "Verano (Hemisferio Norte) / Invierno (Hemisferio Sur)"; 
+				}
+			break;
+		
+			case 7:
+			case 8:
+				season = "Verano (Hemisferio Norte) / Invierno (Hemisferio Sur)"; 
+			break;
+		
+			case 9:
+				if(this.day <=20){
+					season = "Verano (Hemisferio Norte) / Invierno (Hemisferio Sur)"; 
+				}
+				else{
+					season = "Otoño (Hemisferio Norte) / Primavera (Hemisferio Sur)"; 
+				}
+			break;
+	
+			case 10:
+			case 11:
+				season = "Otoño (Hemisferio Norte) / Primavera (Hemisferio Sur)"; 
+			break;
+			
+			case 12:
+				if(this.day <=20){
+					season = "Otoño (Hemisferio Norte) / Primavera (Hemisferio Sur)"; 
+				}
+				else{
+					season = "Invierno (Hemisferio Norte) / Verano (Hemisferio Sur)"; 
+				}
+			break;
+
+			default:
+				season = "Mes incorrecto, estación imposible";
+		}
+		return season;
+	}
 }
