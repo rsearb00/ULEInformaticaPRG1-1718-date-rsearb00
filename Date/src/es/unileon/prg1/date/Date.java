@@ -23,6 +23,7 @@ public class Date {
 	public int getDay(){
 		return this.day;
 	}
+
 	boolean isSameYear(Date another){
 		if ( this.year == another.getYear() ){
 			return true;
@@ -205,19 +206,73 @@ public class Date {
 	}
 
 	public String monthsLeft(){
-		StringBuilder months;
-		months = new StringBuilder();
+		StringBuffer months;
+		months = new StringBuffer();
 		for(int i = this.month; i<=12; i++){
 			months.append("\n");
 			months.append(this.getMonthName());
 			this.month=this.month+1;
 		}
 		return months.toString();
+	}
+	
+	public String aDate(){
+		return this.day + "/" + this.month + "/" + this.year;
+	}
+	
+	public String daysLeft(){
+		StringBuffer days;
+		days = new StringBuffer();
+			if ((this.month == 1)||(this.month == 3)||(this.month == 5)||(this.month == 7)||(this.month == 8)||(this.month == 10)||(this.month == 12)){
+				for(int i = this.day; i<=31; i++){
+					days.append("\n");
+					days.append(this.day);
+					this.day=this.day+1;
+				}
+			}
+			else if ((this.month == 4)||(this.month == 6)||(this.month == 9)||(this.month == 11)){
+				for(int i = this.day; i<=30; i++){
+					days.append("\n");
+					days.append(this.day);
+					this.day=this.day+1;
+				}
+			}
+			else if (this.month == 2){
+				for(int i = this.day; i<=28; i++){
+					days.append("\n");
+					days.append(this.day);
+					this.day=this.day+1;
+				}
+			}
+		return days.toString();
+		//return days.toString();
+	}
+
+	public String sameMonthsDays(){
+		StringBuffer sameMonths;
+		sameMonths = new StringBuffer();
+		if ((this.month == 1)||(this.month == 3)||(this.month == 5)||(this.month == 7)||(this.month == 8)||(this.month == 10)||(this.month == 12)){
+			sameMonths.append("Enero, Marzo, Mayo, Julio, Agosto, Octubre y Diciembre");
 		}
 
+		else if ((this.month == 4)||(this.month == 6)||(this.month == 9)||(this.month == 11)){
+			sameMonths.append("Abril, Junio, Septiembre y Noviembre");
+		}
+
+		else if (this.month == 2){
+			sameMonths.append("Solo Febrero tiene 28 días");
+		}
+		return sameMonths.toString();
 	}
+		
+}
+	/*public String getDate(){
+		return getDay() + getMonth() + getYear();
+	}
+
+*/
+
 	/* Necesario??? public String printDate(){
 		return this.day+"/"+this.month+"/"+this.year;
 	}
-
-}
+*/

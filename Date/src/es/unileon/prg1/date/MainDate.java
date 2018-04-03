@@ -9,8 +9,8 @@ public class MainDate {
 		System.out.println(today + " isSameYear " + tomorrow + "? " + today.isSameYear(tomorrow));
 		//Comprobación inicial del método del mismo año, isSameYear;
 
-		prueba1 = new Date(21, 4, 2015);
-		prueba2 = new Date(24, 5, 2015);
+		prueba1 = new Date(21, 5, 2015);
+		prueba2 = new Date(24, 7, 2015);
 
 		System.out.println(prueba1 + " isSame " + prueba2 + "? " + prueba1.isSame(prueba2));
 		//Comprobación del método de la misma fecha (día, mes, año), isSame;
@@ -25,13 +25,20 @@ public class MainDate {
 		System.out.println("¿Estación del mes?: "+prueba1.getMonthSeason());
 		//Comprobación de las estaciones con el método getMonthSeason();
 
-		System.out.println("¿Meses que faltan hasta el final del año?: "+prueba1.monthsLeft());
+		System.out.println("¿Días que faltan hasta el final del mes?: "+tomorrow.daysLeft());
+		//Comprobación de los días que faltan hasta el final del mes, método daysLeft();
+		
+		System.out.println("¿Meses con los mismos días?: "+tomorrow.sameMonthsDays());
+		//Comprobación de los meses que tienen los mismos días, método sameMonthsDays();
+		
+		System.out.println("¿Meses que faltan hasta el final del año?: "+tomorrow.monthsLeft());
+		//Comprobación de los meses que faltan, método monthsLeft();
+		
+		//System.out.println("Método propio para imprimir la fecha"+prueba1.printDate());
 		//Comprobación de los meses que faltan, método monthsLeft();
 
-		System.out.println("Método propio para imprimir la fecha"+prueba1.printDate());
+		//System.out.println(getDate(today));
 		//Comprobación de los meses que faltan, método monthsLeft();
-		
-		
 	}
 
 }
