@@ -203,4 +203,21 @@ public class Date {
 		}
 		return season;
 	}
+
+	public String monthsLeft(){
+		StringBuilder months;
+		months = new StringBuilder();
+		for(int i = this.month; i<=12; i++){
+			months.append("\n");
+			months.append(this.getMonthName());
+			this.month=this.month+1;
+		}
+		return months.toString();
+		}
+
+	}
+	/* Necesario??? public String printDate(){
+		return this.day+"/"+this.month+"/"+this.year;
+	}
+
 }

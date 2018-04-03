@@ -9,7 +9,7 @@ public class MainDate {
 		System.out.println(today + " isSameYear " + tomorrow + "? " + today.isSameYear(tomorrow));
 		//Comprobación inicial del método del mismo año, isSameYear;
 
-		prueba1 = new Date(21, 13, 2015);
+		prueba1 = new Date(21, 4, 2015);
 		prueba2 = new Date(24, 5, 2015);
 
 		System.out.println(prueba1 + " isSame " + prueba2 + "? " + prueba1.isSame(prueba2));
@@ -24,6 +24,14 @@ public class MainDate {
 		
 		System.out.println("¿Estación del mes?: "+prueba1.getMonthSeason());
 		//Comprobación de las estaciones con el método getMonthSeason();
+
+		System.out.println("¿Meses que faltan hasta el final del año?: "+prueba1.monthsLeft());
+		//Comprobación de los meses que faltan, método monthsLeft();
+
+		System.out.println("Método propio para imprimir la fecha"+prueba1.printDate());
+		//Comprobación de los meses que faltan, método monthsLeft();
+		
+		
 	}
 
 }
