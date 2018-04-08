@@ -2,8 +2,8 @@ Practica Date
 
 Alumno: Raúl Seara Barroso
 
-Horas dedicadas: Demasiadas
+Horas dedicadas: 13
 
-Problemas surgidos al realizar la practica: Muchos, fruto de la ignorancia y la inutilidad
+Problemas surgidos al realizar la practica: La falta de conocimientos y la torpeza para hacer ciertos métodos, pero finalmente todos funcionan aunque podrían optimizarse y reducir código.
 
 

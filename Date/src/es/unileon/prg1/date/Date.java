@@ -24,38 +24,64 @@ public class Date {
 		return this.day;
 	}
 
-	boolean isSameYear(Date another){
+	boolean isSameYearIf(Date another){
 		if ( this.year == another.getYear() ){
 			return true;
 		}
 		return false;
 	}
 	
-	boolean isSameMonth(Date another){
-		if ( this.month == another.getYear() ){
+	//Primera diapositiva:
+	boolean isSameMonthIf(Date another){
+		if ( this.month == another.getMonth() ){
 			return true;
 		}
 		return false;
 	}
 
-	boolean isSameDay(Date another){
+	boolean isSameDayIf(Date another){
 		if ( this.day== another.getDay() ){
 			return true;
 		}
 		return false;
 	}
 	
-	boolean isSame(Date another){
+	boolean isSameIf(Date another){
 		if (( this.day == another.getDay())&&( this.month == another.getMonth())&&( this.year == another.getYear())){
 			return true;
 		}
 		return false;
 	}
-
+	
+	//Sin If:
+	boolean isSameYear(Date another){
+		boolean True;
+		True = (this.year==another.getYear());
+		return True;	
+	} 
+	
+	boolean isSameMonth(Date another){
+		boolean True;
+		True = (this.month==another.getMonth());
+		return True;	
+	} 
+	
+	boolean isSameDay(Date another){
+		boolean True;
+		True = (this.day==another.getDay());
+		return True;	
+	} 
+	
+	boolean isSame(Date another){
+		boolean True;
+		True = (( this.day == another.getDay())&&( this.month == another.getMonth())&&( this.year == another.getYear()));
+		return True;	
+	} 
 	public String toString(){
 		return this.day + "/" + this.month + "/" + this.year;
 	}
 	
+	//Segunda diapositiva
 	public String getMonthName(){
 		String name;
 	
@@ -113,7 +139,7 @@ public class Date {
 		}
 		return name;
 	}
-	boolean isDayOfMonthOK(){
+	boolean isDayRight(){
 		if ((this.month == 1)||(this.month == 3)||(this.month == 5)||(this.month == 7)||(this.month == 8)||(this.month == 10)||(this.month == 12)){
 			if ((this.day >0)&&(this.day <=31)){
 				return true;
@@ -134,7 +160,7 @@ public class Date {
 		return false;
 	}
 
-	public String getMonthSeason(){
+	public String getSeasonName(){
 		String season;
 	
 		switch(month){
@@ -199,7 +225,8 @@ public class Date {
 		return season;
 	}
 
-	public String monthsLeft(){
+	//Tercera diapositiva
+	public String getMonthsLeft(){
 		StringBuffer months;
 		months = new StringBuffer();
 		for(int i = this.month; i<=12; i++){
@@ -208,6 +235,7 @@ public class Date {
 			this.month=this.month+1;
 		}
 		return months.toString();
+		//Incluyo el mes actual dado que no ha acabado
 	}
 
 	public String printDate(){
@@ -216,7 +244,7 @@ public class Date {
 		return date;
 	} 
 	
-	public String daysLeft(){
+	public String getDaysLeftOfMonth(){
 		StringBuffer days;
 		days = new StringBuffer();
 			if ((this.month == 1)||(this.month == 3)||(this.month == 5)||(this.month == 7)||(this.month == 8)||(this.month == 10)||(this.month == 12)){
@@ -241,9 +269,10 @@ public class Date {
 				}
 			}
 		return days.toString();
+		//Incluyo el día actual dado que aún no ha acabado
 	}
 
-	public String sameMonthsDays(){
+	public String getMonthsSameDays(){
 		StringBuffer sameMonths;
 		sameMonths = new StringBuffer();
 		if ((this.month == 1)||(this.month == 3)||(this.month == 5)||(this.month == 7)||(this.month == 8)||(this.month == 10)||(this.month == 12)){
@@ -301,6 +330,7 @@ public class Date {
 		return daysSinceFirstDay;
 	}
 	
+	//Cuarta Diapositiva
 	public int attemptsRandomDate(){
 		int counter = 1;
 		int dayRandom = (int) (Math.random()*31 + 1);
@@ -325,19 +355,33 @@ public class Date {
 		while((dayRandom!=this.day)||(monthRandom!=this.month));
 		return counter;
 	}
+	
+	public String getWeekDay(){
+		String weekDay="";
+		Date date= new Date(this.day, this.month, this.year);
+		//Usamos una fecha creada en el main con el 2018, año que empieza en lunes;
+	
+		if(date.daysSinceFirstDay()%7==1){
+			weekDay="Lunes";
+		}
+		else if(date.daysSinceFirstDay()%7==2){
+			weekDay="Martes";
+		}
+		else if(date.daysSinceFirstDay()%7==3){
+			weekDay="Miércoles";
+		}
+		else if(date.daysSinceFirstDay()%7==4){
+			weekDay="Jueves";
+		}
+		else if(date.daysSinceFirstDay()%7==5){
+			weekDay="Viernes";
+		}
+		else if(date.daysSinceFirstDay()%7==6){
+			weekDay="Sábado";
+		}
+		else if(date.daysSinceFirstDay()%7==0){
+			weekDay="Domingo";
+		}
+		return weekDay;
+	}
 }
-
-
-
-
-
-	/*public String getDate(){
-		return getDay() + getMonth() + getYear();
-	}
-
-*/
-
-	/* Necesario??? public String printDate(){
-		return this.day+"/"+this.month+"/"+this.year;
-	}
-*/
