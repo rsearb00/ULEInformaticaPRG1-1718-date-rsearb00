@@ -133,13 +133,7 @@ public class Date {
 		}
 		return false;
 	}
-	/*boolean isSameMonth(Date another){
-		if ( this.month == another.getYear() ){
-			return true;
-		}
-		return false;
-	}
-	*/
+
 	public String getMonthSeason(){
 		String season;
 	
@@ -215,10 +209,12 @@ public class Date {
 		}
 		return months.toString();
 	}
-	
-	public String aDate(){
-		return this.day + "/" + this.month + "/" + this.year;
-	}
+
+	public String printDate(){
+		String date = new String ("");
+		date = (getDay()+"/"+getMonth()+"/"+getYear());
+		return date;
+	} 
 	
 	public String daysLeft(){
 		StringBuffer days;
@@ -226,26 +222,25 @@ public class Date {
 			if ((this.month == 1)||(this.month == 3)||(this.month == 5)||(this.month == 7)||(this.month == 8)||(this.month == 10)||(this.month == 12)){
 				for(int i = this.day; i<=31; i++){
 					days.append("\n");
-					days.append(this.day);
+					days.append(this.day+"/"+this.month+"/"+this.year);
 					this.day=this.day+1;
 				}
 			}
 			else if ((this.month == 4)||(this.month == 6)||(this.month == 9)||(this.month == 11)){
 				for(int i = this.day; i<=30; i++){
 					days.append("\n");
-					days.append(this.day);
+					days.append(this.day+"/"+this.month+"/"+this.year);
 					this.day=this.day+1;
 				}
 			}
 			else if (this.month == 2){
 				for(int i = this.day; i<=28; i++){
 					days.append("\n");
-					days.append(this.day);
+					days.append(this.day+"/"+this.month+"/"+this.year);
 					this.day=this.day+1;
 				}
 			}
 		return days.toString();
-		//return days.toString();
 	}
 
 	public String sameMonthsDays(){
@@ -265,7 +260,77 @@ public class Date {
 		return sameMonths.toString();
 	}
 		
+	public int daysSinceFirstDay(){
+		int daysSinceFirstDay = 0;
+		if(this.month == 1){
+			daysSinceFirstDay = this.day;
+		}
+		else if(this.month == 2){
+			daysSinceFirstDay = 31 + this.day;
+		}
+		else if(this.month == 3){
+			daysSinceFirstDay = 31 + 28 + this.day;
+		}
+		else if(this.month == 4){
+			daysSinceFirstDay = 31 + 28 + 31 + this.day;
+		}
+		else if(this.month == 5){
+			daysSinceFirstDay = 31 + 28 + 31 + 30 + this.day;
+		}
+		else if(this.month == 6){
+			daysSinceFirstDay = 31 + 28 + 31 + 30 + 31 + this.day;
+		}
+		else if(this.month == 7){
+			daysSinceFirstDay = 31 + 28 + 31 + 30 + 31 + 30 + this.day;
+		}
+		else if(this.month == 8){
+			daysSinceFirstDay = 31 + 28 + 31 + 30 + 31 + 30 + 31 + this.day;
+		}
+		else if(this.month == 9){
+			daysSinceFirstDay = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + this.day;
+		}
+		else if(this.month == 10){
+			daysSinceFirstDay = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + this.day;
+		}
+		else if(this.month == 11){
+			daysSinceFirstDay = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + this.day;
+		}
+		else{
+			daysSinceFirstDay = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + this.day;
+		}
+		return daysSinceFirstDay;
+	}
+	
+	public int attemptsRandomDate(){
+		int counter = 1;
+		int dayRandom = (int) (Math.random()*31 + 1);
+		int monthRandom = (int) (Math.random()*12 + 1);
+		while((dayRandom!=this.day)||(monthRandom!=this.month)){
+			counter = counter + 1;
+			dayRandom = (int) (Math.random()*31 + 1);
+			monthRandom = (int) (Math.random()*12 + 1);
+		}
+		return counter;
+	}
+	
+	public int attemptsRandomDateDo(){
+		int counter = 1;
+		int dayRandom = (int) (Math.random()*31 + 1);
+		int monthRandom = (int) (Math.random()*12 + 1);
+		do{
+			counter = counter + 1;
+			dayRandom = (int) (Math.random()*31 + 1);
+			monthRandom = (int) (Math.random()*12 + 1);
+		}
+		while((dayRandom!=this.day)||(monthRandom!=this.month));
+		return counter;
+	}
 }
+
+
+
+
+
 	/*public String getDate(){
 		return getDay() + getMonth() + getYear();
 	}
